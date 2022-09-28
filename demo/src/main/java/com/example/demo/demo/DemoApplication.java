@@ -21,6 +21,7 @@ public class DemoApplication {
 	public String hello() {
 		System.out.println("value: " + myprop);
 		System.out.println("conditional value: " + myotherprop);		
+		
 		return "hello again";
 	}
 
