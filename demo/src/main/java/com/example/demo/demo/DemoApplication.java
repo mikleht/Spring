@@ -10,19 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoApplication {
 
-	@Value( "${myprop}" )
-	private String myprop;
-
-	@Value( "${myotherprop:xx}" )
-	private String myotherprop;
+	@Value( "${message:default}" )
+	private String message;
 
 
 	@GetMapping("/")
-	public String hello() {
-		System.out.println("value: " + myprop);
-		System.out.println("conditional value: " + myotherprop);		
-		
-		return "hello again";
+	public String hello() {			
+		return "hello from: " + message;
 	}
 
 	public static void main(String[] args) {
