@@ -8,6 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @SpringBootApplication
 @RestController
 public class DemoApplication {
@@ -17,7 +21,9 @@ public class DemoApplication {
 	@Value( "${message:default}" )
 	private String message;
 
-
+	@Operation(summary = "Get hello message")
+	@ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Ok hello message")})
 	@GetMapping("/")
 	public String hello() {			
 		LOG.info("hello info level");
